@@ -1,0 +1,81 @@
+cd Code
+mkdir branching_examples
+git init branching_examples
+cd branching_examples/
+vim .
+mv README.txt fox.txt 
+vim . 
+gs
+gca 'create some files' 
+git add .
+gs
+gca 'create some files' 
+git log 
+vim . 
+cd ~/Code/branching_examples/ 
+git checkout -b demo-of-merge-no-ff-git-cli 
+vim fox.txt 
+gs 
+gca 'change fox'
+git checkout master 
+vim lamb.txt 
+gca 'change lamb' 
+git checkout demo-of-merge-no-ff-git-cli 
+git merge --no-ff master 
+gitx  
+vim . 
+gca 'changes needed due to merge'
+git checkout master
+git merge --no-ff demo-of-merge-no-ff-git-cli 
+vim do
+vim fox.txt 
+gca 'trivial change' 
+git checkout -b another-demo-of-merge-no-ff-git-cli 
+vim fox.txt 
+gca 'fox change' 
+git checkout master 
+git checkout another-demo-of-merge-no-ff-git-cli-branch-two
+git checkout -b another-demo-of-merge-no-ff-git-cli-branch-two
+gitx 
+git branch -d  another-demo-of-merge-no-ff-git-cli-branch-two
+git checkout master 
+git branch -d  another-demo-of-merge-no-ff-git-cli-branch-two
+git vim lamb.txt
+vim lamb.txt
+gca 'lamb change' 
+git branch -d  another-demo-of-merge-no-ff-git-cli-branch-two
+git checkout -b another-demo-of-merge-no-ff-git-cli-branch-two
+vim lamb.txt 
+gca 'mary change' 
+git checkout master 
+vim fox.txt 
+gca 'fox change' 
+git checkout another-demo-of-merge-no-ff-git-cli
+git merge --no-ff master 
+git checkout master 
+git checkout another-demo-of-merge-no-ff-git-cli
+vim fox.txt 
+gca 'changes needed after merge' 
+git checkout master
+vim lamb.txt 
+gca 'another lamb change' 
+git checkout another-demo-of-merge-no-ff-git-cli-branch-two 
+git merge --no-ff master 
+git checkout another-demo-of-merge-no-ff-git-cli
+git merge --no-ff master 
+vim lamb.txt 
+gca 'changes necessitated by merge' 
+git checkout master 
+git merge --no-ff another-demo-of-merge-no-ff-git-cli
+git checkout another-demo-of-merge-no-ff-git-cli-branch-two 
+git merge --no-ff master 
+gs 
+vim lamb.txt 
+git add lamb.txt
+gs 
+git commit 
+vim fox.txt 
+gca 'changes needed after merge' 
+git checkout master 
+git merge --no-ff another-demo-of-merge-no-ff-git-cli-branch-two 
+git help rebase 
